@@ -2,7 +2,7 @@
 
 // A function to fetch and display the country info
 async function getCountryInfo() {
-const name = document.getElementById("name");
+const name = document.getElementById("name").value.trim();
   
 if (!name) {
 alert("Field is empty"); // Error handling, empty field
