@@ -49,7 +49,7 @@ else {
 
 // This function takes the relevant country and fetches the relevant bordering country information.
 async function getBorderingCountries(borders) {
-  if ( borders.length === 0 || !borders) { //No bordering country was found, hence length === 0
+  if ( !borders||borders.length === 0 ) { //No bordering country was found, hence length === 0
     console.error("No bordering countries were found.");
     document.getElementById("bordering-countries").innerHTML = "<p>No bordering countries were found.</p>";
     return; // If no array of borders is empty, terminate the program immediately. Else if it is found, try/catch.
@@ -75,7 +75,7 @@ async function getBorderingCountries(borders) {
     const sectionBorderingCountriesInfo = document.getElementById("bordering-countries");
     sectionBorderingCountriesInfo.innerHTML = "<h3>Bordering Countries:</h3>";
     //Iterate through JSON array
-    sectionBorderingCountriesInfo.forEach(country => {
+    borderingCountries.forEach(country => {
     sectionBorderingCountriesInfo.innerHTML += `
         <p>
         <strong>Country:</strong> ${country.name.common}
