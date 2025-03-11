@@ -2,7 +2,7 @@
 
 // A function to fetch and display the country info
 async function getCountryInfo() {
-const name = document.getElementById("name").value.trim();
+const name = document.getElementById("name");
   
 if (!name) {
 alert("Field is empty"); // Error handling, empty field
@@ -72,17 +72,17 @@ async function getBorderingCountries(borders) {
     );
 
     //Since the bordering countries were found, you must display the relevant information.
-    const borderingCountriesSection = document.getElementById("bordering-countries");
-    borderingCountriesSection.innerHTML = "<h3>Bordering Countries:</h3>";
+    const sectionBorderingCountriesInfo = document.getElementById("bordering-countries");
+    sectionBorderingCountriesInfo.innerHTML = "<h3>Bordering Countries:</h3>";
     //Iterate through JSON array
-    borderingCountries.forEach(country => {
-    borderingCountriesSection.innerHTML += `
+    sectionBorderingCountriesInfo.forEach(country => {
+    sectionBorderingCountriesInfo.innerHTML += `
         <p>
-          <strong>Country:</strong> ${country.name.common}
-          <img src="${country.flags.png}" width="50">
+        <strong>Country:</strong> ${country.name.common}
+        <img src="${country.flags.png}" width="50">
         </p>`;
     });
-  } 
+} 
 catch (error) {
     console.error("There is an error in fetching the bordering countries' info :", error);
     document.getElementById("bordering-countries").innerHTML = "<p>There is an error in fetching the bordering countries' info.</p>";}
